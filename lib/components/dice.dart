@@ -1,13 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class Dice extends StatelessWidget {
+class Dice extends StatefulWidget {
   const Dice(
-    this.value, {
+    this.initialValue, {
     super.key,
     this.size = 75,
-  }) : assert(value > 0 && value <= 6);
+  }) : assert(initialValue > 0 && initialValue <= 6);
 
-  final int value;
+  final int initialValue;
   final double size;
 
   static const _diceFaces = {
@@ -20,25 +22,48 @@ class Dice extends StatelessWidget {
   };
 
   @override
+  State<Dice> createState() => _DiceState();
+}
+
+class _DiceState extends State<Dice> {
+  late int _value;
+  int get value => _value;
+
+  @override
+  void initState() {
+    _value = widget.initialValue;
+
+    super.initState();
+  }
+
+  int roll() {
+    setState(() => _value = Random().nextInt(6) + 1);
+    return _value;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      height: size,
-      width: size,
-      alignment: Alignment.center,
-      padding: EdgeInsets.all(size * 0.16),
-      margin: EdgeInsets.all(size * 0.066),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.secondary,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
+    return GestureDetector(
+      onTap: roll,
+      child: Container(
+        height: widget.size,
+        width: widget.size,
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(widget.size * 0.16),
+        margin: EdgeInsets.all(widget.size * 0.066),
+        decoration: BoxDecoration(
           color: theme.colorScheme.secondary,
-          width: 5,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: theme.colorScheme.secondary,
+            width: 5,
+          ),
         ),
-      ),
-      child: DiceProperties(
-        size: size,
-        child: _diceFaces[value]!,
+        child: DiceProperties(
+          size: widget.size,
+          child: Dice._diceFaces[_value]!,
+        ),
       ),
     );
   }
