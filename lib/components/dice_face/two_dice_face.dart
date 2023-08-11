@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../dice.dart';
 import '../dots/dice_dot.dart';
+import '../dots/two_opposite_dots.dart';
 import 'dice_face.dart';
 
 class TwoDiceFace extends DiceFace {
@@ -12,30 +13,7 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget toOne(DiceProperties diceProperties) {
-    return AnimatedContainer(
-      duration: diceProperties.duration,
-      curve: Curves.easeInOutCirc,
-      width: diceProperties.shouldAnimate
-          ? diceProperties.dotSize
-          : diceProperties.maxOffset.dx,
-      height: diceProperties.shouldAnimate
-          ? diceProperties.dotSize
-          : diceProperties.maxOffset.dy,
-      child: const Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            child: DiceDot(),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: DiceDot(),
-          ),
-        ],
-      ),
-    );
+    return const TwoOppositeDots();
   }
 
   @override
@@ -65,44 +43,21 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget toThree(DiceProperties diceProperties) {
-    return SizedBox.expand(
+    return const SizedBox.expand(
       child: Stack(
         alignment: Alignment.center,
         children: [
-          const Positioned(
+          Positioned(
             top: 0,
             left: 0,
             child: DiceDot(),
           ),
-          const Positioned(
+          Positioned(
             bottom: 0,
             right: 0,
             child: DiceDot(),
           ),
-          AnimatedContainer(
-            duration: diceProperties.duration,
-            curve: Curves.linear,
-            width: diceProperties.shouldAnimate
-                ? diceProperties.dotSize
-                : diceProperties.maxOffset.dx,
-            height: diceProperties.shouldAnimate
-                ? diceProperties.dotSize
-                : diceProperties.maxOffset.dy,
-            child: const Stack(
-              children: [
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  child: DiceDot(),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: DiceDot(),
-                ),
-              ],
-            ),
-          ),
+          TwoOppositeDots()
         ],
       ),
     );
@@ -170,30 +125,7 @@ class TwoDiceFace extends DiceFace {
             right: 0,
             child: const DiceDot(),
           ),
-          AnimatedContainer(
-            duration: diceProperties.duration,
-            curve: Curves.linear,
-            width: diceProperties.shouldAnimate
-                ? diceProperties.dotSize
-                : diceProperties.maxOffset.dx,
-            height: diceProperties.shouldAnimate
-                ? diceProperties.dotSize
-                : diceProperties.maxOffset.dy,
-            child: const Stack(
-              children: [
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  child: DiceDot(),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: DiceDot(),
-                ),
-              ],
-            ),
-          ),
+          const TwoOppositeDots()
         ],
       ),
     );
