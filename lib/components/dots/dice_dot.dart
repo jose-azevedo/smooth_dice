@@ -8,8 +8,8 @@ class DiceDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: DiceProperties.of(context)?.dotSize ?? 10,
-      width: DiceProperties.of(context)?.dotSize ?? 10,
+      height: DiceProperties.of(context).dotSize,
+      width: DiceProperties.of(context).dotSize,
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         shape: BoxShape.circle,

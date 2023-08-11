@@ -25,7 +25,7 @@ abstract class DiceFace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
-    final builder = transitions[diceProperties!.nextValue ?? faceValue];
+    final builder = transitions[diceProperties.nextValue ?? faceValue];
     return SizedBox(
       key: ValueKey(diceProperties.nextValue),
       child: builder!(diceProperties),

@@ -118,8 +118,16 @@ class DiceProperties extends InheritedWidget {
         maxOffset = Offset(constraints.maxHeight - size * 10 / 75,
             constraints.maxWidth - size * 10 / 75);
 
-  static DiceProperties? of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<DiceProperties>();
+  static DiceProperties of(BuildContext context) {
+    final properties =
+        context.dependOnInheritedWidgetOfExactType<DiceProperties>();
+
+    if (properties == null) {
+      throw Exception('No DiceProperties found in context');
+    }
+
+    return properties;
+  }
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;
