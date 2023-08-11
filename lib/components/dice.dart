@@ -82,12 +82,12 @@ class _DiceState extends State<Dice> {
           builder: (_, constraints) {
             return DiceProperties(
               key: ValueKey(_value),
-          size: widget.size,
+              size: widget.size,
               shouldAnimate: _shouldAnimate,
               duration: duration,
               constraints: constraints,
               nextValue: _nextValue,
-          child: Dice._diceFaces[_value]!,
+              child: Dice._diceFaces[_value]!,
             );
           },
         ),
@@ -124,10 +124,45 @@ class DiceProperties extends InheritedWidget {
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;
 }
 
-class TwoValueDiceFace extends StatelessWidget {
+abstract class DiceFace extends StatelessWidget {
+  const DiceFace({super.key});
+
+  int get faceValue;
+
+  Map<int, Widget Function(DiceProperties)> get transitions => {
+        1: toOne,
+        2: toTwo,
+        3: toThree,
+        4: toFour,
+        5: toFive,
+        6: toSix,
+      };
+
+  @override
+  Widget build(BuildContext context) {
+    final diceProperties = DiceProperties.of(context);
+    final builder = transitions[diceProperties!.nextValue ?? faceValue];
+    return SizedBox(
+      key: ValueKey(diceProperties.nextValue),
+      child: builder!(diceProperties),
+    );
+  }
+
+  Widget toOne(DiceProperties diceProperties);
+  Widget toTwo(DiceProperties diceProperties);
+  Widget toThree(DiceProperties diceProperties);
+  Widget toFour(DiceProperties diceProperties);
+  Widget toFive(DiceProperties diceProperties);
+  Widget toSix(DiceProperties diceProperties);
+}
+
+class TwoValueDiceFace extends DiceFace {
   const TwoValueDiceFace({super.key});
 
   @override
+  int get faceValue => 2;
+
+  @override
   Widget build(BuildContext context) {
     return const SizedBox.expand(
       child: Column(
@@ -149,12 +184,51 @@ class TwoValueDiceFace extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget toFive(DiceProperties diceProperties) {
+    // TODO: implement toFive
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    // TODO: implement toFour
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toOne(DiceProperties diceProperties) {
+    // TODO: implement toOne
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toSix(DiceProperties diceProperties) {
+    // TODO: implement toSix
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    // TODO: implement toThree
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    // TODO: implement toTwo
+    throw UnimplementedError();
+  }
 }
 
-class ThreeValueDiceFace extends StatelessWidget {
+class ThreeValueDiceFace extends DiceFace {
   const ThreeValueDiceFace({super.key});
 
   @override
+  int get faceValue => 3;
+
+  @override
   Widget build(BuildContext context) {
     return const SizedBox.expand(
       child: Column(
@@ -177,12 +251,51 @@ class ThreeValueDiceFace extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget toFive(DiceProperties diceProperties) {
+    // TODO: implement toFive
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    // TODO: implement toFour
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toOne(DiceProperties diceProperties) {
+    // TODO: implement toOne
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toSix(DiceProperties diceProperties) {
+    // TODO: implement toSix
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    // TODO: implement toThree
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    // TODO: implement toTwo
+    throw UnimplementedError();
+  }
 }
 
-class FourValueDiceFace extends StatelessWidget {
+class FourValueDiceFace extends DiceFace {
   const FourValueDiceFace({super.key});
 
   @override
+  int get faceValue => 4;
+
+  @override
   Widget build(BuildContext context) {
     return const SizedBox.expand(
       child: Column(
@@ -206,10 +319,49 @@ class FourValueDiceFace extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget toFive(DiceProperties diceProperties) {
+    // TODO: implement toFive
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    // TODO: implement toFour
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toOne(DiceProperties diceProperties) {
+    // TODO: implement toOne
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toSix(DiceProperties diceProperties) {
+    // TODO: implement toSix
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    // TODO: implement toThree
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    // TODO: implement toTwo
+    throw UnimplementedError();
+  }
 }
 
-class FiveValueDiceFace extends StatelessWidget {
+class FiveValueDiceFace extends DiceFace {
   const FiveValueDiceFace({super.key});
+
+  @override
+  int get faceValue => 5;
 
   @override
   Widget build(BuildContext context) {
@@ -236,10 +388,49 @@ class FiveValueDiceFace extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Widget toFive(DiceProperties diceProperties) {
+    // TODO: implement toFive
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    // TODO: implement toFour
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toOne(DiceProperties diceProperties) {
+    // TODO: implement toOne
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toSix(DiceProperties diceProperties) {
+    // TODO: implement toSix
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    // TODO: implement toThree
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    // TODO: implement toTwo
+    throw UnimplementedError();
+  }
 }
 
-class SixValueDiceFace extends StatelessWidget {
+class SixValueDiceFace extends DiceFace {
   const SixValueDiceFace({super.key});
+
+  @override
+  int get faceValue => 6;
 
   @override
   Widget build(BuildContext context) {
@@ -271,6 +462,42 @@ class SixValueDiceFace extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  Widget toFive(DiceProperties diceProperties) {
+    // TODO: implement toFive
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    // TODO: implement toFour
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toOne(DiceProperties diceProperties) {
+    // TODO: implement toOne
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toSix(DiceProperties diceProperties) {
+    // TODO: implement toSix
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    // TODO: implement toThree
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    // TODO: implement toTwo
+    throw UnimplementedError();
   }
 }
 
