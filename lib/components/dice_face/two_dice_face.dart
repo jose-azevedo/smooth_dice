@@ -10,22 +10,130 @@ class TwoDiceFace extends DiceFace {
   int get faceValue => 2;
 
   @override
-  Widget build(BuildContext context) {
-    return const SizedBox.expand(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Widget toOne(DiceProperties diceProperties) {
+    return AnimatedContainer(
+      duration: diceProperties.duration,
+      curve: Curves.easeInOutCirc,
+      width: diceProperties.shouldAnimate
+          ? diceProperties.dotSize
+          : diceProperties.maxOffset.dx,
+      height: diceProperties.shouldAnimate
+          ? diceProperties.dotSize
+          : diceProperties.maxOffset.dy,
+      child: const Stack(
         children: [
-          Row(
-            children: [
-              DiceDot(),
-              Spacer(),
-            ],
+          Positioned(
+            top: 0,
+            left: 0,
+            child: DiceDot(),
           ),
-          Row(
-            children: [
-              Spacer(),
-              DiceDot(),
-            ],
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: DiceDot(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    return SizedBox.expand(
+      child: Stack(
+        children: [
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            left:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dx : 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            right:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dx : 0,
+            child: const DiceDot(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    return SizedBox.expand(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          const Positioned(
+            top: 0,
+            left: 0,
+            child: DiceDot(),
+          ),
+          const Positioned(
+            bottom: 0,
+            right: 0,
+            child: DiceDot(),
+          ),
+          AnimatedContainer(
+            duration: diceProperties.duration,
+            curve: Curves.linear,
+            width: diceProperties.shouldAnimate
+                ? diceProperties.dotSize
+                : diceProperties.maxOffset.dx,
+            height: diceProperties.shouldAnimate
+                ? diceProperties.dotSize
+                : diceProperties.maxOffset.dy,
+            child: const Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  child: DiceDot(),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: DiceDot(),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    return SizedBox.expand(
+      child: Stack(
+        children: [
+          const Positioned(
+            top: 0,
+            left: 0,
+            child: DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            left: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            right: 0,
+            child: const DiceDot(),
+          ),
+          const Positioned(
+            bottom: 0,
+            right: 0,
+            child: DiceDot(),
           ),
         ],
       ),
@@ -34,37 +142,108 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget toFive(DiceProperties diceProperties) {
-    // TODO: implement toFive
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toFour(DiceProperties diceProperties) {
-    // TODO: implement toFour
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toOne(DiceProperties diceProperties) {
-    // TODO: implement toOne
-    throw UnimplementedError();
+    return SizedBox.expand(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          const Positioned(
+            top: 0,
+            left: 0,
+            child: DiceDot(),
+          ),
+          const Positioned(
+            bottom: 0,
+            right: 0,
+            child: DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            left: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            right: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedContainer(
+            duration: diceProperties.duration,
+            curve: Curves.linear,
+            width: diceProperties.shouldAnimate
+                ? diceProperties.dotSize
+                : diceProperties.maxOffset.dx,
+            height: diceProperties.shouldAnimate
+                ? diceProperties.dotSize
+                : diceProperties.maxOffset.dy,
+            child: const Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  child: DiceDot(),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: DiceDot(),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   Widget toSix(DiceProperties diceProperties) {
-    // TODO: implement toSix
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toThree(DiceProperties diceProperties) {
-    // TODO: implement toThree
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toTwo(DiceProperties diceProperties) {
-    // TODO: implement toTwo
-    throw UnimplementedError();
+    return SizedBox.expand(
+      child: Stack(
+        children: [
+          const Positioned(
+            top: 0,
+            left: 0,
+            child: DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            left: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: diceProperties.shouldAnimate
+                ? diceProperties.maxOffset.dy / 2
+                : 0,
+            left: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            right: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom: diceProperties.shouldAnimate
+                ? diceProperties.maxOffset.dy / 2
+                : 0,
+            right: 0,
+            child: const DiceDot(),
+          ),
+          const Positioned(
+            bottom: 0,
+            right: 0,
+            child: DiceDot(),
+          ),
+        ],
+      ),
+    );
   }
 }
