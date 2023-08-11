@@ -91,18 +91,18 @@ class TwoValueDiceFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return const SizedBox.expand(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children: const [
+            children: [
               DiceDot(),
               Spacer(),
             ],
           ),
           Row(
-            children: const [
+            children: [
               Spacer(),
               DiceDot(),
             ],
@@ -118,19 +118,19 @@ class ThreeValueDiceFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return const SizedBox.expand(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children: const [
+            children: [
               DiceDot(),
               Spacer(),
             ],
           ),
-          const DiceDot(),
+          DiceDot(),
           Row(
-            children: const [
+            children: [
               Spacer(),
               DiceDot(),
             ],
@@ -146,20 +146,20 @@ class FourValueDiceFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return const SizedBox.expand(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
@@ -175,21 +175,21 @@ class FiveValueDiceFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return const SizedBox.expand(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
           ),
-          const DiceDot(),
+          DiceDot(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
@@ -205,27 +205,27 @@ class SixValueDiceFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return const SizedBox.expand(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               DiceDot(),
               DiceDot(),
             ],
