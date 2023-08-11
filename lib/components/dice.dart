@@ -27,6 +27,10 @@ class Dice extends StatefulWidget {
 
 class _DiceState extends State<Dice> {
   late int _value;
+  int? _nextValue;
+  bool _shouldAnimate = false;
+  final duration = const Duration(milliseconds: 200);
+
   int get value => _value;
 
   @override
@@ -36,8 +40,22 @@ class _DiceState extends State<Dice> {
     super.initState();
   }
 
-  int roll() {
-    setState(() => _value = Random().nextInt(6) + 1);
+  Future<int> roll() async {
+    setState(() {
+      _nextValue = Random().nextInt(6) + 1;
+      _shouldAnimate = false;
+    });
+
+    await Future.delayed(duration);
+
+    setState(() => _shouldAnimate = true);
+
+    await Future.delayed(duration);
+
+    setState(() {
+      _value = _nextValue!;
+    });
+
     return _value;
   }
 
@@ -60,9 +78,18 @@ class _DiceState extends State<Dice> {
             width: 5,
           ),
         ),
-        child: DiceProperties(
+        child: LayoutBuilder(
+          builder: (_, constraints) {
+            return DiceProperties(
+              key: ValueKey(_value),
           size: widget.size,
+              shouldAnimate: _shouldAnimate,
+              duration: duration,
+              constraints: constraints,
+              nextValue: _nextValue,
           child: Dice._diceFaces[_value]!,
+            );
+          },
         ),
       ),
     );
@@ -71,13 +98,24 @@ class _DiceState extends State<Dice> {
 
 class DiceProperties extends InheritedWidget {
   final double size;
+  final int? nextValue;
   final double dotSize;
+  final bool shouldAnimate;
+  final Duration duration;
+  final BoxConstraints constraints;
+  final Offset maxOffset;
 
-  const DiceProperties({
+  DiceProperties({
     super.key,
+    this.nextValue,
     required super.child,
     required this.size,
-  }) : dotSize = size * 10 / 75;
+    required this.shouldAnimate,
+    required this.duration,
+    required this.constraints,
+  })  : dotSize = size * 10 / 75,
+        maxOffset = Offset(constraints.maxHeight - size * 10 / 75,
+            constraints.maxWidth - size * 10 / 75);
 
   static DiceProperties? of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<DiceProperties>();
