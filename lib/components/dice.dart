@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'dice_face/dice_face.dart';
+import 'dots/dice_dot.dart';
 
 class Dice extends StatefulWidget {
   const Dice(
@@ -124,20 +123,4 @@ class DiceProperties extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;
-}
-
-class DiceDot extends StatelessWidget {
-  const DiceDot({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: DiceProperties.of(context)?.dotSize ?? 10,
-      width: DiceProperties.of(context)?.dotSize ?? 10,
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        shape: BoxShape.circle,
-      ),
-    );
-  }
 }
