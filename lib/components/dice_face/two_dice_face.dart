@@ -44,23 +44,19 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget toThree(DiceProperties diceProperties) {
-    return const SizedBox.expand(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            child: DiceDot(),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: DiceDot(),
-          ),
-          TwoOppositeDots()
-        ],
-      ),
+    return const TwoOppositeDots(
+      children: [
+        Positioned(
+          top: 0,
+          left: 0,
+          child: DiceDot(),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: DiceDot(),
+        ),
+      ],
     );
   }
 
