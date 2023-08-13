@@ -23,40 +23,38 @@ class TwoOppositeDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
 
-    double startWidth = diceProperties.maxOffset.dx;
-    double startHeight = diceProperties.maxOffset.dy;
-    double finalWidth = diceProperties.dotSize;
-    double finalHeight = diceProperties.dotSize;
+    double startPosition = diceProperties.maxOffset.dx / 2;
+    double endPosition = 0;
 
     if (animationDirection == AnimationDirection.outwards) {
-      startWidth = diceProperties.dotSize;
-      startHeight = diceProperties.dotSize;
-      finalWidth = diceProperties.maxOffset.dx;
-      finalHeight = diceProperties.maxOffset.dy;
+      startPosition = 0;
+      endPosition = diceProperties.maxOffset.dx / 2;
     }
 
-    return AnimatedContainer(
-      duration: diceProperties.duration,
-      curve: Curves.easeInOutCirc,
-      width: diceProperties.shouldAnimate ? finalWidth : startWidth,
-      height: diceProperties.shouldAnimate ? finalHeight : startHeight,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          ...children,
-          Positioned(
-            top: 0,
-            left: dotsPosition == DotsPosition.topLeftBottomRight ? 0 : null,
-            right: dotsPosition == DotsPosition.topRightBottomLeft ? 0 : null,
-            child: const DiceDot(),
-          ),
-          Positioned(
-            bottom: 0,
-            left: dotsPosition == DotsPosition.topRightBottomLeft ? 0 : null,
-            right: dotsPosition == DotsPosition.topLeftBottomRight ? 0 : null,
-            child: const DiceDot(),
-          ),
-        ],
+    return SizedBox.expand(
+      child: Transform.flip(
+        flipX: dotsPosition == DotsPosition.topRightBottomLeft,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ...children,
+            AnimatedPositioned(
+              duration: diceProperties.duration,
+              curve: Curves.easeInOutCirc,
+              top: diceProperties.shouldAnimate ? startPosition : endPosition,
+              left: diceProperties.shouldAnimate ? startPosition : endPosition,
+              child: const DiceDot(),
+            ),
+            AnimatedPositioned(
+              duration: diceProperties.duration,
+              curve: Curves.easeInOutCirc,
+              bottom:
+                  diceProperties.shouldAnimate ? startPosition : endPosition,
+              right: diceProperties.shouldAnimate ? startPosition : endPosition,
+              child: const DiceDot(),
+            ),
+          ],
+        ),
       ),
     );
   }
