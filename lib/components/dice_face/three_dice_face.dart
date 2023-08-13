@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_dice/components/dots/two_opposite_dots.dart';
 
 import '../dice.dart';
 import '../dots/dice_dot.dart';
@@ -11,23 +12,76 @@ class ThreeDiceFace extends DiceFace {
   int get faceValue => 3;
 
   @override
-  Widget build(BuildContext context) {
-    return const SizedBox.expand(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Widget toOne(DiceProperties diceProperties) {
+    return const TwoOppositeDots(
+      children: [
+        DiceDot(),
+      ],
+    );
+  }
+
+  @override
+  Widget toTwo(DiceProperties diceProperties) {
+    return const TwoOppositeDots(
+      animationDirection: AnimationDirection.outwards,
+      children: [
+        Positioned(
+          top: 0,
+          left: 0,
+          child: DiceDot(),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: DiceDot(),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget toThree(DiceProperties diceProperties) {
+    return const TwoOppositeDots(
+      animationDirection: AnimationDirection.inwards,
+      children: [
+        TwoOppositeDots(
+          animationDirection: AnimationDirection.outwards,
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget toFour(DiceProperties diceProperties) {
+    return SizedBox.expand(
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          Row(
-            children: [
-              DiceDot(),
-              Spacer(),
-            ],
+          const Positioned(
+            top: 0,
+            left: 0,
+            child: DiceDot(),
           ),
-          DiceDot(),
-          Row(
-            children: [
-              Spacer(),
-              DiceDot(),
-            ],
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            left: 0,
+            child: const DiceDot(),
+          ),
+          AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom:
+                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
+            right: 0,
+            child: const DiceDot(),
+          ),
+          const Positioned(
+            bottom: 0,
+            right: 0,
+            child: DiceDot(),
+          ),
+          const TwoOppositeDots(
+            animationDirection: AnimationDirection.outwards,
           ),
         ],
       ),
@@ -41,32 +95,8 @@ class ThreeDiceFace extends DiceFace {
   }
 
   @override
-  Widget toFour(DiceProperties diceProperties) {
-    // TODO: implement toFour
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toOne(DiceProperties diceProperties) {
-    // TODO: implement toOne
-    throw UnimplementedError();
-  }
-
-  @override
   Widget toSix(DiceProperties diceProperties) {
     // TODO: implement toSix
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toThree(DiceProperties diceProperties) {
-    // TODO: implement toThree
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget toTwo(DiceProperties diceProperties) {
-    // TODO: implement toTwo
     throw UnimplementedError();
   }
 }
