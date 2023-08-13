@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../dice.dart';
 import '../dots/dice_dot.dart';
 import '../dots/two_and_four_dots.dart';
+import '../dots/two_and_six_dots.dart';
 import '../dots/two_opposite_dots.dart';
 import 'dice_face.dart';
 
@@ -76,26 +77,6 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget toSix(DiceProperties diceProperties) {
-    return TwoAndFourDots(
-      transitionAxis: Axis.horizontal,
-      children: [
-        AnimatedPositioned(
-          duration: diceProperties.duration,
-          top: diceProperties.shouldAnimate
-              ? diceProperties.maxOffset.dy / 2
-              : 0,
-          left: 0,
-          child: const DiceDot(),
-        ),
-        AnimatedPositioned(
-          duration: diceProperties.duration,
-          bottom: diceProperties.shouldAnimate
-              ? diceProperties.maxOffset.dy / 2
-              : 0,
-          right: 0,
-          child: const DiceDot(),
-        ),
-      ],
-    );
+    return const TwoAndSixDots();
   }
 }

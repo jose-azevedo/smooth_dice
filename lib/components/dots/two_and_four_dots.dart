@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import '../dice.dart';
 import 'dice_dot.dart';
 
-enum TwoAndFourAnimationDirection {
-  toFour,
-  toTwo,
+enum DotsEndResult {
+  larger,
+  smaller,
 }
 
 class TwoAndFourDots extends StatelessWidget {
   const TwoAndFourDots({
     super.key,
-    this.animationDirection = TwoAndFourAnimationDirection.toFour,
+    this.dotsEndResult = DotsEndResult.larger,
     this.transitionAxis = Axis.vertical,
     this.children = const [],
   });
 
-  final TwoAndFourAnimationDirection animationDirection;
+  final DotsEndResult dotsEndResult;
   final Axis transitionAxis;
   final List<Widget> children;
 
@@ -27,7 +27,7 @@ class TwoAndFourDots extends StatelessWidget {
     double startPosition = diceProperties.maxOffset.dx;
     double endPosition = 0;
 
-    if (animationDirection == TwoAndFourAnimationDirection.toTwo) {
+    if (dotsEndResult == DotsEndResult.smaller) {
       startPosition = 0;
       endPosition = diceProperties.maxOffset.dx;
     }
