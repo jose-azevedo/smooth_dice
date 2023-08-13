@@ -12,10 +12,12 @@ class TwoOppositeDots extends StatelessWidget {
     super.key,
     this.animationDirection = AnimationDirection.inwards,
     this.dotsPosition = DotsPosition.topLeftBottomRight,
+    this.children = const [],
   });
 
   final AnimationDirection animationDirection;
   final DotsPosition dotsPosition;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,9 @@ class TwoOppositeDots extends StatelessWidget {
       width: diceProperties.shouldAnimate ? finalWidth : startWidth,
       height: diceProperties.shouldAnimate ? finalHeight : startHeight,
       child: Stack(
+        alignment: Alignment.center,
         children: [
+          ...children,
           Positioned(
             top: 0,
             left: dotsPosition == DotsPosition.topLeftBottomRight ? 0 : null,
