@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
+import 'package:smooth_dice/components/dots/two_and_six_dots.dart';
 import 'package:smooth_dice/components/dots/two_opposite_dots.dart';
 
 import '../dice.dart';
@@ -53,50 +55,33 @@ class ThreeDiceFace extends DiceFace {
 
   @override
   Widget toFour(DiceProperties diceProperties) {
-    return SizedBox.expand(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          const Positioned(
-            top: 0,
-            left: 0,
-            child: DiceDot(),
-          ),
-          AnimatedPositioned(
-            duration: diceProperties.duration,
-            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
-            left: 0,
-            child: const DiceDot(),
-          ),
-          AnimatedPositioned(
-            duration: diceProperties.duration,
-            bottom:
-                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
-            right: 0,
-            child: const DiceDot(),
-          ),
-          const Positioned(
-            bottom: 0,
-            right: 0,
-            child: DiceDot(),
-          ),
-          const TwoOppositeDots(
-            animationDirection: AnimationDirection.outwards,
-          ),
-        ],
-      ),
+    return const TwoAndFourDots(
+      children: [
+        TwoOppositeDots(
+          animationDirection: AnimationDirection.outwards,
+        )
+      ],
     );
   }
 
   @override
   Widget toFive(DiceProperties diceProperties) {
-    // TODO: implement toFive
-    throw UnimplementedError();
+    return const TwoAndFourDots(
+      children: [
+        DiceDot(),
+      ],
+    );
   }
 
   @override
   Widget toSix(DiceProperties diceProperties) {
-    // TODO: implement toSix
-    throw UnimplementedError();
+    return const TwoAndSixDots(
+      children: [
+        TwoOppositeDots(
+          dotsPosition: DotsPosition.topRightBottomLeft,
+          animationDirection: AnimationDirection.outwards,
+        ),
+      ],
+    );
   }
 }
