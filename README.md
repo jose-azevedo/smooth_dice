@@ -1,16 +1,17 @@
-# smooth_dice
+# Smooth Dice
 
-A new Flutter project.
+Smooth Dice is a Flutter app designed to provide a visually appealing dice-rolling animations. It is intended as a showcase of my Flutter skills.
+
+Being an ongoing project, it remains a work in progress, yet I consistently update it.
+
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/jose-azevedo/smooth_dice/assets/smooth_dice_demo.gif" alt="App Demo" height="500" />
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the Repository:** `git clone https://github.com/your-username/smooth-dice.git`
+2. **Navigate to the Project Folder:** `cd smooth-dice`
+3. **Install Dependencies:** `flutter pub get`
+4. **Run the App:** `flutter run`
