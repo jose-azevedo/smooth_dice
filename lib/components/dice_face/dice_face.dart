@@ -14,28 +14,28 @@ abstract class DiceFace extends StatelessWidget {
   int get faceValue;
 
   Map<int, Widget Function(DiceProperties)> get transitions => {
-        1: toOne,
-        2: toTwo,
-        3: toThree,
-        4: toFour,
-        5: toFive,
-        6: toSix,
+        1: fromOne,
+        2: fromTwo,
+        3: fromThree,
+        4: fromFour,
+        5: fromFive,
+        6: fromSix,
       };
 
   @override
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
-    final builder = transitions[diceProperties.nextValue ?? faceValue];
+    final builder = transitions[diceProperties.lastValue];
     return SizedBox(
-      key: ValueKey(diceProperties.nextValue),
+      key: ValueKey(diceProperties.lastValue),
       child: builder!(diceProperties),
     );
   }
 
-  Widget toOne(DiceProperties diceProperties);
-  Widget toTwo(DiceProperties diceProperties);
-  Widget toThree(DiceProperties diceProperties);
-  Widget toFour(DiceProperties diceProperties);
-  Widget toFive(DiceProperties diceProperties);
-  Widget toSix(DiceProperties diceProperties);
+  Widget fromOne(DiceProperties diceProperties);
+  Widget fromTwo(DiceProperties diceProperties);
+  Widget fromThree(DiceProperties diceProperties);
+  Widget fromFour(DiceProperties diceProperties);
+  Widget fromFive(DiceProperties diceProperties);
+  Widget fromSix(DiceProperties diceProperties);
 }

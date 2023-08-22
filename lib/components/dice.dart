@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'dice_face/dice_face.dart';
@@ -28,8 +30,7 @@ class Dice extends StatefulWidget {
 
 class _DiceState extends State<Dice> {
   late int _value;
-  int? _nextValue;
-  bool _shouldAnimate = false;
+  late int _lastValue;
   final duration = const Duration(milliseconds: 200);
 
   int get value => _value;
@@ -37,27 +38,16 @@ class _DiceState extends State<Dice> {
   @override
   void initState() {
     _value = widget.initialValue;
+    _lastValue = _value;
 
     super.initState();
   }
 
-  Future<int> roll() async {
+  void roll() {
     setState(() {
-      _nextValue = Random().nextInt(6) + 1;
-      _shouldAnimate = false;
+      _lastValue = _value;
+      _value = Random().nextInt(6) + 1;
     });
-
-    await Future.delayed(duration);
-
-    setState(() => _shouldAnimate = true);
-
-    await Future.delayed(duration);
-
-    setState(() {
-      _value = _nextValue!;
-    });
-
-    return _value;
   }
 
   @override
@@ -84,10 +74,9 @@ class _DiceState extends State<Dice> {
             return DiceProperties(
               key: ValueKey(_value),
               size: widget.size,
-              shouldAnimate: _shouldAnimate,
               duration: duration,
               constraints: constraints,
-              nextValue: _nextValue,
+              lastValue: _lastValue,
               child: Dice._diceFaces[_value]!,
             );
           },
@@ -99,19 +88,17 @@ class _DiceState extends State<Dice> {
 
 class DiceProperties extends InheritedWidget {
   final double size;
-  final int? nextValue;
+  final int? lastValue;
   final double dotSize;
-  final bool shouldAnimate;
   final Duration duration;
   final BoxConstraints constraints;
   final Offset maxOffset;
 
   DiceProperties({
     super.key,
-    this.nextValue,
+    this.lastValue,
     required super.child,
     required this.size,
-    required this.shouldAnimate,
     required this.duration,
     required this.constraints,
   })  : dotSize = size * 10 / 75,

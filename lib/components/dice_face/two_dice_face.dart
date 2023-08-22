@@ -14,12 +14,12 @@ class TwoDiceFace extends DiceFace {
   int get faceValue => 2;
 
   @override
-  Widget toOne(DiceProperties diceProperties) {
+  Widget fromOne(DiceProperties diceProperties) {
     return const TwoOppositeDots();
   }
 
   @override
-  Widget toTwo(DiceProperties diceProperties) {
+  Widget fromTwo(DiceProperties diceProperties) {
     return SizedBox.expand(
       child: Stack(
         children: [
@@ -44,7 +44,7 @@ class TwoDiceFace extends DiceFace {
   }
 
   @override
-  Widget toThree(DiceProperties diceProperties) {
+  Widget fromThree(DiceProperties diceProperties) {
     return const TwoOppositeDots(
       children: [
         Positioned(
@@ -62,12 +62,12 @@ class TwoDiceFace extends DiceFace {
   }
 
   @override
-  Widget toFour(DiceProperties diceProperties) {
+  Widget fromFour(DiceProperties diceProperties) {
     return const TwoAndFourDots();
   }
 
   @override
-  Widget toFive(DiceProperties diceProperties) {
+  Widget fromFive(DiceProperties diceProperties) {
     return const TwoAndFourDots(
       children: [
         TwoOppositeDots(),
@@ -76,7 +76,7 @@ class TwoDiceFace extends DiceFace {
   }
 
   @override
-  Widget toSix(DiceProperties diceProperties) {
+  Widget fromSix(DiceProperties diceProperties) {
     return const TwoAndSixDots();
   }
 }

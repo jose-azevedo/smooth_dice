@@ -14,7 +14,7 @@ class ThreeDiceFace extends DiceFace {
   int get faceValue => 3;
 
   @override
-  Widget toOne(DiceProperties diceProperties) {
+  Widget fromOne(DiceProperties diceProperties) {
     return const TwoOppositeDots(
       children: [
         DiceDot(),
@@ -23,7 +23,7 @@ class ThreeDiceFace extends DiceFace {
   }
 
   @override
-  Widget toTwo(DiceProperties diceProperties) {
+  Widget fromTwo(DiceProperties diceProperties) {
     return const TwoOppositeDots(
       animationDirection: AnimationDirection.outwards,
       children: [
@@ -42,7 +42,7 @@ class ThreeDiceFace extends DiceFace {
   }
 
   @override
-  Widget toThree(DiceProperties diceProperties) {
+  Widget fromThree(DiceProperties diceProperties) {
     return const TwoOppositeDots(
       animationDirection: AnimationDirection.inwards,
       children: [
@@ -54,7 +54,7 @@ class ThreeDiceFace extends DiceFace {
   }
 
   @override
-  Widget toFour(DiceProperties diceProperties) {
+  Widget fromFour(DiceProperties diceProperties) {
     return const TwoAndFourDots(
       children: [
         TwoOppositeDots(
@@ -65,7 +65,7 @@ class ThreeDiceFace extends DiceFace {
   }
 
   @override
-  Widget toFive(DiceProperties diceProperties) {
+  Widget fromFive(DiceProperties diceProperties) {
     return const TwoAndFourDots(
       children: [
         DiceDot(),
@@ -74,7 +74,7 @@ class ThreeDiceFace extends DiceFace {
   }
 
   @override
-  Widget toSix(DiceProperties diceProperties) {
+  Widget fromSix(DiceProperties diceProperties) {
     return const TwoAndSixDots(
       children: [
         TwoOppositeDots(

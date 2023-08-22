@@ -36,37 +36,37 @@ class FourDiceFace extends DiceFace {
   }
 
   @override
-  Widget toFive(DiceProperties diceProperties) {
+  Widget fromFive(DiceProperties diceProperties) {
     // TODO: implement toFive
     throw UnimplementedError();
   }
 
   @override
-  Widget toFour(DiceProperties diceProperties) {
+  Widget fromFour(DiceProperties diceProperties) {
     // TODO: implement toFour
     throw UnimplementedError();
   }
 
   @override
-  Widget toOne(DiceProperties diceProperties) {
+  Widget fromOne(DiceProperties diceProperties) {
     // TODO: implement toOne
     throw UnimplementedError();
   }
 
   @override
-  Widget toSix(DiceProperties diceProperties) {
+  Widget fromSix(DiceProperties diceProperties) {
     // TODO: implement toSix
     throw UnimplementedError();
   }
 
   @override
-  Widget toThree(DiceProperties diceProperties) {
+  Widget fromThree(DiceProperties diceProperties) {
     // TODO: implement toThree
     throw UnimplementedError();
   }
 
   @override
-  Widget toTwo(DiceProperties diceProperties) {
+  Widget fromTwo(DiceProperties diceProperties) {
     // TODO: implement toTwo
     throw UnimplementedError();
   }
