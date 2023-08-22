@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 export 'two_dice_face.dart';
@@ -27,7 +29,7 @@ abstract class DiceFace extends StatelessWidget {
     final diceProperties = DiceProperties.of(context);
     final builder = transitions[diceProperties.lastValue];
     return SizedBox(
-      key: ValueKey(diceProperties.lastValue),
+      key: ValueKey(UniqueKey()),
       child: builder!(diceProperties),
     );
   }
