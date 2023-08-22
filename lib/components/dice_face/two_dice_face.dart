@@ -20,23 +20,30 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget fromTwo(DiceProperties diceProperties) {
+    final tween = Tween<double>(begin: 0, end: diceProperties.maxOffset.dx);
+
     return SizedBox.expand(
       child: Stack(
         children: [
-          AnimatedPositioned(
+          TweenAnimationBuilder(
+            tween: tween,
             duration: diceProperties.duration,
-            top: diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
-            left:
-                diceProperties.shouldAnimate ? diceProperties.maxOffset.dx : 0,
-            child: const DiceDot(),
+            builder: (_, position, __) => AnimatedPositioned(
+              duration: diceProperties.duration,
+              top: position,
+              left: position,
+              child: const DiceDot(),
+            ),
           ),
-          AnimatedPositioned(
+          TweenAnimationBuilder(
+            tween: tween,
             duration: diceProperties.duration,
-            bottom:
-                diceProperties.shouldAnimate ? diceProperties.maxOffset.dy : 0,
-            right:
-                diceProperties.shouldAnimate ? diceProperties.maxOffset.dx : 0,
-            child: const DiceDot(),
+            builder: (_, position, __) => AnimatedPositioned(
+              duration: diceProperties.duration,
+              bottom: position,
+              right: position,
+              child: const DiceDot(),
+            ),
           ),
         ],
       ),

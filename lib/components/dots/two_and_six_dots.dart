@@ -20,12 +20,10 @@ class TwoAndSixDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
 
-    double startPosition = diceProperties.maxOffset.dx / 2;
-    double endPosition = 0;
+    Tween<double> tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
 
     if (dotsEndResult == DotsEndResult.smaller) {
-      startPosition = 0;
-      endPosition = diceProperties.maxOffset.dx / 2;
+      tween = Tween(begin: 0, end: diceProperties.maxOffset.dx / 2);
     }
 
     return TwoAndFourDots(
@@ -33,17 +31,25 @@ class TwoAndSixDots extends StatelessWidget {
       dotsEndResult: dotsEndResult,
       children: [
         ...children,
-        AnimatedPositioned(
+        TweenAnimationBuilder(
+          tween: tween,
           duration: diceProperties.duration,
-          top: diceProperties.shouldAnimate ? startPosition : endPosition,
-          left: 0,
-          child: const DiceDot(),
+          builder: (_, position, __) => AnimatedPositioned(
+            duration: diceProperties.duration,
+            top: position,
+            left: 0,
+            child: const DiceDot(),
+          ),
         ),
-        AnimatedPositioned(
+        TweenAnimationBuilder(
+          tween: tween,
           duration: diceProperties.duration,
-          bottom: diceProperties.shouldAnimate ? startPosition : endPosition,
-          right: 0,
-          child: const DiceDot(),
+          builder: (_, position, __) => AnimatedPositioned(
+            duration: diceProperties.duration,
+            bottom: position,
+            right: 0,
+            child: const DiceDot(),
+          ),
         ),
       ],
     );

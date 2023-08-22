@@ -24,12 +24,10 @@ class TwoAndFourDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
 
-    double startPosition = diceProperties.maxOffset.dx;
-    double endPosition = 0;
+    Tween<double> tween = Tween(begin: diceProperties.maxOffset.dx, end: 0);
 
     if (dotsEndResult == DotsEndResult.smaller) {
-      startPosition = 0;
-      endPosition = diceProperties.maxOffset.dx;
+      tween = Tween(begin: 0, end: diceProperties.maxOffset.dx);
     }
 
     return SizedBox.expand(
@@ -47,28 +45,25 @@ class TwoAndFourDots extends StatelessWidget {
             right: 0,
             child: DiceDot(),
           ),
-          AnimatedPositioned(
+          TweenAnimationBuilder(
+            tween: tween,
             duration: diceProperties.duration,
-            top: diceProperties.shouldAnimate && transitionAxis == Axis.vertical
-                ? startPosition
-                : endPosition,
-            left: diceProperties.shouldAnimate &&
-                    transitionAxis == Axis.horizontal
-                ? startPosition
-                : endPosition,
-            child: const DiceDot(),
+            builder: (_, position, __) => AnimatedPositioned(
+              duration: diceProperties.duration,
+              top: transitionAxis == Axis.vertical ? position : 0,
+              left: transitionAxis == Axis.horizontal ? position : 0,
+              child: const DiceDot(),
+            ),
           ),
-          AnimatedPositioned(
+          TweenAnimationBuilder(
+            tween: tween,
             duration: diceProperties.duration,
-            bottom:
-                diceProperties.shouldAnimate && transitionAxis == Axis.vertical
-                    ? startPosition
-                    : endPosition,
-            right: diceProperties.shouldAnimate &&
-                    transitionAxis == Axis.horizontal
-                ? startPosition
-                : endPosition,
-            child: const DiceDot(),
+            builder: (_, position, __) => AnimatedPositioned(
+              duration: diceProperties.duration,
+              bottom: transitionAxis == Axis.vertical ? position : 0,
+              right: transitionAxis == Axis.horizontal ? position : 0,
+              child: const DiceDot(),
+            ),
           ),
         ],
       ),
