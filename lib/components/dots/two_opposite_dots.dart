@@ -10,7 +10,7 @@ enum DotsPosition { topLeftBottomRight, topRightBottomLeft }
 class TwoOppositeDots extends StatelessWidget {
   const TwoOppositeDots({
     super.key,
-    this.animationDirection = AnimationDirection.inwards,
+    this.animationDirection = AnimationDirection.outwards,
     this.dotsPosition = DotsPosition.topLeftBottomRight,
     this.children = const [],
   });
