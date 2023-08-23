@@ -7,7 +7,7 @@ import 'dice_dot.dart';
 class TwoAndSixDots extends StatelessWidget {
   const TwoAndSixDots({
     super.key,
-    this.dotsEndResult = DotsEndResult.larger,
+    required this.dotsEndResult,
     this.transitionAxis = Axis.vertical,
     this.children = const [],
   });
@@ -20,10 +20,10 @@ class TwoAndSixDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
 
-    Tween<double> tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
+    Tween<double> tween = Tween(begin: 0, end: diceProperties.maxOffset.dx / 2);
 
     if (dotsEndResult == DotsEndResult.smaller) {
-      tween = Tween(begin: 0, end: diceProperties.maxOffset.dx / 2);
+      tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
     }
 
     return TwoAndFourDots(

@@ -28,7 +28,7 @@ class FourDiceFace extends DiceFace {
   Widget fromTwo(DiceProperties diceProperties) {
     return const TwoAndFourDots(
       transitionAxis: Axis.horizontal,
-      dotsEndResult: DotsEndResult.smaller,
+      dotsEndResult: DotsEndResult.larger,
     );
   }
 
@@ -36,7 +36,7 @@ class FourDiceFace extends DiceFace {
   Widget fromThree(DiceProperties diceProperties) {
     return const TwoAndFourDots(
       transitionAxis: Axis.horizontal,
-      dotsEndResult: DotsEndResult.smaller,
+      dotsEndResult: DotsEndResult.larger,
       children: [
         TwoOppositeDots(),
       ],
@@ -49,7 +49,9 @@ class FourDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.smaller,
       transitionAxis: Axis.horizontal,
       children: [
-        TwoAndFourDots(),
+        TwoAndFourDots(
+          dotsEndResult: DotsEndResult.larger,
+        ),
       ],
     );
   }
@@ -60,7 +62,9 @@ class FourDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.smaller,
       children: [
         TwoOppositeDots(),
-        TwoAndFourDots(),
+        TwoAndFourDots(
+          dotsEndResult: DotsEndResult.larger,
+        ),
       ],
     );
   }
@@ -68,6 +72,7 @@ class FourDiceFace extends DiceFace {
   @override
   Widget fromSix(DiceProperties diceProperties) {
     return const TwoAndSixDots(
+      dotsEndResult: DotsEndResult.smaller,
       children: [
         Positioned(
           top: 0,

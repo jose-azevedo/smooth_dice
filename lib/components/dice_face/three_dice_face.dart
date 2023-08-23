@@ -56,6 +56,7 @@ class ThreeDiceFace extends DiceFace {
   @override
   Widget fromFour(DiceProperties diceProperties) {
     return const TwoAndFourDots(
+      dotsEndResult: DotsEndResult.smaller,
       children: [
         TwoOppositeDots(
           animationDirection: AnimationDirection.inwards,
@@ -67,6 +68,7 @@ class ThreeDiceFace extends DiceFace {
   @override
   Widget fromFive(DiceProperties diceProperties) {
     return const TwoAndFourDots(
+      dotsEndResult: DotsEndResult.smaller,
       children: [
         DiceDot(),
       ],
@@ -76,6 +78,7 @@ class ThreeDiceFace extends DiceFace {
   @override
   Widget fromSix(DiceProperties diceProperties) {
     return const TwoAndSixDots(
+      dotsEndResult: DotsEndResult.smaller,
       children: [
         TwoOppositeDots(
           dotsPosition: DotsPosition.topRightBottomLeft,

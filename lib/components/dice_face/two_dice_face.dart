@@ -70,12 +70,15 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget fromFour(DiceProperties diceProperties) {
-    return const TwoAndFourDots();
+    return const TwoAndFourDots(
+      dotsEndResult: DotsEndResult.smaller,
+    );
   }
 
   @override
   Widget fromFive(DiceProperties diceProperties) {
     return const TwoAndFourDots(
+      dotsEndResult: DotsEndResult.smaller,
       children: [
         TwoOppositeDots(),
       ],
@@ -84,6 +87,8 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget fromSix(DiceProperties diceProperties) {
-    return const TwoAndSixDots();
+    return const TwoAndSixDots(
+      dotsEndResult: DotsEndResult.smaller,
+    );
   }
 }

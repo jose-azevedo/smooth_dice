@@ -11,7 +11,7 @@ enum DotsEndResult {
 class TwoAndFourDots extends StatelessWidget {
   const TwoAndFourDots({
     super.key,
-    this.dotsEndResult = DotsEndResult.larger,
+    required this.dotsEndResult,
     this.transitionAxis = Axis.vertical,
     this.children = const [],
   });
@@ -24,10 +24,10 @@ class TwoAndFourDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
 
-    Tween<double> tween = Tween(begin: diceProperties.maxOffset.dx, end: 0);
+    Tween<double> tween = Tween(begin: 0, end: diceProperties.maxOffset.dx);
 
     if (dotsEndResult == DotsEndResult.smaller) {
-      tween = Tween(begin: 0, end: diceProperties.maxOffset.dx);
+      tween = Tween(begin: diceProperties.maxOffset.dx, end: 0);
     }
 
     return SizedBox.expand(
