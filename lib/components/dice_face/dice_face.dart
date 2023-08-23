@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
+export 'one_dice_face.dart';
 export 'two_dice_face.dart';
 export 'three_dice_face.dart';
 export 'four_dice_face.dart';

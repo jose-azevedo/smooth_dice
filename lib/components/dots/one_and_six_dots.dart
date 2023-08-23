@@ -1,78 +1,25 @@
 import 'package:flutter/material.dart';
 
 import '../dice.dart';
-import '../dots/dots.dart';
-import 'dice_face.dart';
+import 'dots.dart';
 
-class SixDiceFace extends DiceFace {
-  const SixDiceFace({super.key});
+class OneAndSixDots extends StatelessWidget {
+  const OneAndSixDots({
+    super.key,
+    required this.dotsEndResult,
+  });
 
-  @override
-  int get faceValue => 6;
-
-  @override
-  Widget fromOne(DiceProperties diceProperties) {
-    return const OneAndSixDots(dotsEndResult: DotsEndResult.larger);
-  }
+  final DotsEndResult dotsEndResult;
 
   @override
-  Widget fromTwo(DiceProperties diceProperties) {
-    return const TwoAndSixDots(
-      dotsEndResult: DotsEndResult.larger,
-    );
-  }
+  Widget build(BuildContext context) {
+    final diceProperties = DiceProperties.of(context);
 
-  @override
-  Widget fromThree(DiceProperties diceProperties) {
-    return const TwoAndSixDots(
-      dotsEndResult: DotsEndResult.larger,
-      children: [
-        TwoAndOneDots(
-          dotsEndResult: DotsEndResult.larger,
-        ),
-      ],
-    );
-  }
+    Tween<double> tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
 
-  @override
-  Widget fromFour(DiceProperties diceProperties) {
-    return const TwoAndSixDots(
-      dotsEndResult: DotsEndResult.larger,
-      children: [
-        Positioned(
-          top: 0,
-          right: 0,
-          child: DiceDot(),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          child: DiceDot(),
-        ),
-      ],
-    );
-  }
-
-  @override
-  Widget fromFive(DiceProperties diceProperties) {
-    return const TwoAndSixDots(
-      dotsEndResult: DotsEndResult.larger,
-      children: [
-        TwoAndFourDots(dotsEndResult: DotsEndResult.smaller),
-        TwoAndOneDots(
-          dotsEndResult: DotsEndResult.larger,
-        ),
-        TwoAndOneDots(
-          dotsEndResult: DotsEndResult.larger,
-          dotsPosition: DotsPosition.bottomLeftTopRight,
-        ),
-      ],
-    );
-  }
-
-  @override
-  Widget fromSix(DiceProperties diceProperties) {
-    final tween = Tween<double>(begin: 0, end: diceProperties.maxOffset.dx);
+    if (dotsEndResult == DotsEndResult.smaller) {
+      tween = Tween(begin: 0, end: diceProperties.maxOffset.dx / 2);
+    }
 
     return SizedBox.expand(
       child: Stack(

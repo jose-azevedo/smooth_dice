@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'dice_face/dice_face.dart';
-import 'dots/dice_dot.dart';
 
 class Dice extends StatefulWidget {
   const Dice(
@@ -16,7 +15,7 @@ class Dice extends StatefulWidget {
   final double size;
 
   static const _diceFaces = {
-    1: DiceDot(),
+    1: OneDiceFace(),
     2: TwoDiceFace(),
     3: ThreeDiceFace(),
     4: FourDiceFace(),

@@ -1,4 +1,5 @@
 export 'dice_dot.dart';
+export 'one_and_six_dots.dart';
 export 'two_and_one_dots.dart';
 export 'two_and_four_dots.dart';
 export 'two_and_six_dots.dart';
