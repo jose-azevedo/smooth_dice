@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../dice.dart';
-import 'dice_dot.dart';
-
-enum DotsEndResult {
-  larger,
-  smaller,
-}
+import 'dots.dart';
 
 class TwoAndFourDots extends StatelessWidget {
   const TwoAndFourDots({

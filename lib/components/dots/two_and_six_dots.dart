@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
 
 import '../dice.dart';
-import 'dice_dot.dart';
+import 'dots.dart';
 
 class TwoAndSixDots extends StatelessWidget {
   const TwoAndSixDots({

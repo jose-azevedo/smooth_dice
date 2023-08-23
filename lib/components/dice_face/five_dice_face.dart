@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
-import 'package:smooth_dice/components/dots/two_and_six_dots.dart';
-import 'package:smooth_dice/components/dots/two_and_one_dots.dart';
 
 import '../dice.dart';
-import '../dots/dice_dot.dart';
+import '../dots/dots.dart';
 import 'dice_face.dart';
 
 class FiveDiceFace extends DiceFace {
