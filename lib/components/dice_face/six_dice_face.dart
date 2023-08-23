@@ -128,7 +128,7 @@ class SixDiceFace extends DiceFace {
         ),
         TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
         ),
       ],
     );

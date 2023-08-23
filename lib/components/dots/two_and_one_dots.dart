@@ -4,7 +4,7 @@ import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
 import '../dice.dart';
 import 'dice_dot.dart';
 
-enum DotsPosition { topLeftBottomRight, topRightBottomLeft }
+enum DotsPosition { topLeftBottomRight, bottomLeftTopRight }
 
 class TwoAndOneDots extends StatelessWidget {
   const TwoAndOneDots({
@@ -30,7 +30,7 @@ class TwoAndOneDots extends StatelessWidget {
 
     return SizedBox.expand(
       child: Transform.flip(
-        flipX: dotsPosition == DotsPosition.topRightBottomLeft,
+        flipX: dotsPosition == DotsPosition.bottomLeftTopRight,
         child: Stack(
           alignment: Alignment.center,
           children: [

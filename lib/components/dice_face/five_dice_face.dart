@@ -20,7 +20,7 @@ class FiveDiceFace extends DiceFace {
       children: [
         TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
         ),
         DiceDot(),
       ],
@@ -48,7 +48,7 @@ class FiveDiceFace extends DiceFace {
       children: [
         TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
         ),
         DiceDot(),
       ],
@@ -66,7 +66,7 @@ class FiveDiceFace extends DiceFace {
         ),
         TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
         ),
       ],
     );
@@ -101,7 +101,7 @@ class FiveDiceFace extends DiceFace {
         ),
         TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
         ),
       ],
     );

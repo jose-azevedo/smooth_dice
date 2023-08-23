@@ -82,7 +82,7 @@ class ThreeDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.smaller,
       children: [
         TwoAndOneDots(
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
           dotsEndResult: DotsEndResult.smaller,
         ),
       ],

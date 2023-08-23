@@ -20,7 +20,7 @@ class FourDiceFace extends DiceFace {
       children: [
         TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
-          dotsPosition: DotsPosition.topRightBottomLeft,
+          dotsPosition: DotsPosition.bottomLeftTopRight,
         ),
       ],
     );
