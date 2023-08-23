@@ -4,7 +4,7 @@ import '../dice.dart';
 import '../dots/dice_dot.dart';
 import '../dots/two_and_four_dots.dart';
 import '../dots/two_and_six_dots.dart';
-import '../dots/two_opposite_dots.dart';
+import '../dots/two_and_one_dots.dart';
 import 'dice_face.dart';
 
 class TwoDiceFace extends DiceFace {
@@ -15,7 +15,7 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget fromOne(DiceProperties diceProperties) {
-    return const TwoOppositeDots(
+    return const TwoAndOneDots(
       dotsEndResult: DotsEndResult.larger,
     );
   }
@@ -54,7 +54,7 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget fromThree(DiceProperties diceProperties) {
-    return const TwoOppositeDots(
+    return const TwoAndOneDots(
       dotsEndResult: DotsEndResult.larger,
       children: [
         Positioned(
@@ -83,7 +83,7 @@ class TwoDiceFace extends DiceFace {
     return const TwoAndFourDots(
       dotsEndResult: DotsEndResult.smaller,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
         ),
       ],

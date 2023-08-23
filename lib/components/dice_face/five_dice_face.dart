@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
 import 'package:smooth_dice/components/dots/two_and_six_dots.dart';
-import 'package:smooth_dice/components/dots/two_opposite_dots.dart';
+import 'package:smooth_dice/components/dots/two_and_one_dots.dart';
 
 import '../dice.dart';
 import '../dots/dice_dot.dart';
@@ -15,10 +15,10 @@ class FiveDiceFace extends DiceFace {
 
   @override
   Widget fromOne(DiceProperties diceProperties) {
-    return const TwoOppositeDots(
+    return const TwoAndOneDots(
       dotsEndResult: DotsEndResult.larger,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
@@ -33,7 +33,7 @@ class FiveDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.larger,
       transitionAxis: Axis.horizontal,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
         ),
       ],
@@ -46,7 +46,7 @@ class FiveDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.larger,
       transitionAxis: Axis.horizontal,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
@@ -61,10 +61,10 @@ class FiveDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.larger,
       transitionAxis: Axis.horizontal,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
         ),
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
@@ -80,7 +80,7 @@ class FiveDiceFace extends DiceFace {
         TwoAndFourDots(
           dotsEndResult: DotsEndResult.smaller,
         ),
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
         ),
         DiceDot(),
@@ -96,10 +96,10 @@ class FiveDiceFace extends DiceFace {
         TwoAndFourDots(
           dotsEndResult: DotsEndResult.larger,
         ),
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
         ),
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),

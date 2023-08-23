@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
 import 'package:smooth_dice/components/dots/two_and_six_dots.dart';
-import 'package:smooth_dice/components/dots/two_opposite_dots.dart';
+import 'package:smooth_dice/components/dots/two_and_one_dots.dart';
 
 import '../dice.dart';
 import '../dots/dice_dot.dart';
@@ -15,7 +15,7 @@ class ThreeDiceFace extends DiceFace {
 
   @override
   Widget fromOne(DiceProperties diceProperties) {
-    return const TwoOppositeDots(
+    return const TwoAndOneDots(
       dotsEndResult: DotsEndResult.larger,
       children: [
         DiceDot(),
@@ -25,7 +25,7 @@ class ThreeDiceFace extends DiceFace {
 
   @override
   Widget fromTwo(DiceProperties diceProperties) {
-    return const TwoOppositeDots(
+    return const TwoAndOneDots(
       dotsEndResult: DotsEndResult.smaller,
       children: [
         Positioned(
@@ -44,10 +44,10 @@ class ThreeDiceFace extends DiceFace {
 
   @override
   Widget fromThree(DiceProperties diceProperties) {
-    return const TwoOppositeDots(
+    return const TwoAndOneDots(
       dotsEndResult: DotsEndResult.smaller,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
         ),
       ],
@@ -59,7 +59,7 @@ class ThreeDiceFace extends DiceFace {
     return const TwoAndFourDots(
       dotsEndResult: DotsEndResult.smaller,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.smaller,
         )
       ],
@@ -81,7 +81,7 @@ class ThreeDiceFace extends DiceFace {
     return const TwoAndSixDots(
       dotsEndResult: DotsEndResult.smaller,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsPosition: DotsPosition.topRightBottomLeft,
           dotsEndResult: DotsEndResult.smaller,
         ),

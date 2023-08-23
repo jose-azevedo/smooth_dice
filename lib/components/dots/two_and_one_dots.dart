@@ -6,8 +6,8 @@ import 'dice_dot.dart';
 
 enum DotsPosition { topLeftBottomRight, topRightBottomLeft }
 
-class TwoOppositeDots extends StatelessWidget {
-  const TwoOppositeDots({
+class TwoAndOneDots extends StatelessWidget {
+  const TwoAndOneDots({
     super.key,
     required this.dotsEndResult,
     this.dotsPosition = DotsPosition.topLeftBottomRight,

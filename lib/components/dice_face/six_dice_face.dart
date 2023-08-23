@@ -4,7 +4,7 @@ import 'package:smooth_dice/components/dots/two_and_six_dots.dart';
 
 import '../dice.dart';
 import '../dots/dice_dot.dart';
-import '../dots/two_opposite_dots.dart';
+import '../dots/two_and_one_dots.dart';
 import 'dice_face.dart';
 
 class SixDiceFace extends DiceFace {
@@ -91,7 +91,7 @@ class SixDiceFace extends DiceFace {
     return const TwoAndSixDots(
       dotsEndResult: DotsEndResult.larger,
       children: [
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
         ),
       ],
@@ -123,10 +123,10 @@ class SixDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.larger,
       children: [
         TwoAndFourDots(dotsEndResult: DotsEndResult.smaller),
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
         ),
-        TwoOppositeDots(
+        TwoAndOneDots(
           dotsEndResult: DotsEndResult.larger,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
