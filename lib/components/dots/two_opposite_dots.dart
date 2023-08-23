@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_dice/components/dots/two_and_four_dots.dart';
 
 import '../dice.dart';
 import 'dice_dot.dart';
-
-enum AnimationDirection { inwards, outwards }
 
 enum DotsPosition { topLeftBottomRight, topRightBottomLeft }
 
 class TwoOppositeDots extends StatelessWidget {
   const TwoOppositeDots({
     super.key,
-    this.animationDirection = AnimationDirection.outwards,
+    required this.dotsEndResult,
     this.dotsPosition = DotsPosition.topLeftBottomRight,
     this.children = const [],
   });
 
-  final AnimationDirection animationDirection;
+  final DotsEndResult dotsEndResult;
   final DotsPosition dotsPosition;
   final List<Widget> children;
 
@@ -23,10 +22,10 @@ class TwoOppositeDots extends StatelessWidget {
   Widget build(BuildContext context) {
     final diceProperties = DiceProperties.of(context);
 
-    Tween<double> tween = Tween(begin: 0, end: diceProperties.maxOffset.dx / 2);
+    Tween<double> tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
 
-    if (animationDirection == AnimationDirection.outwards) {
-      tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
+    if (dotsEndResult == DotsEndResult.smaller) {
+      tween = Tween(begin: 0, end: diceProperties.maxOffset.dx / 2);
     }
 
     return SizedBox.expand(

@@ -16,8 +16,10 @@ class FiveDiceFace extends DiceFace {
   @override
   Widget fromOne(DiceProperties diceProperties) {
     return const TwoOppositeDots(
+      dotsEndResult: DotsEndResult.larger,
       children: [
         TwoOppositeDots(
+          dotsEndResult: DotsEndResult.larger,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
         DiceDot(),
@@ -32,7 +34,7 @@ class FiveDiceFace extends DiceFace {
       transitionAxis: Axis.horizontal,
       children: [
         TwoOppositeDots(
-          animationDirection: AnimationDirection.inwards,
+          dotsEndResult: DotsEndResult.smaller,
         ),
       ],
     );
@@ -45,7 +47,7 @@ class FiveDiceFace extends DiceFace {
       transitionAxis: Axis.horizontal,
       children: [
         TwoOppositeDots(
-          animationDirection: AnimationDirection.outwards,
+          dotsEndResult: DotsEndResult.larger,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
         DiceDot(),
@@ -60,10 +62,10 @@ class FiveDiceFace extends DiceFace {
       transitionAxis: Axis.horizontal,
       children: [
         TwoOppositeDots(
-          animationDirection: AnimationDirection.inwards,
+          dotsEndResult: DotsEndResult.smaller,
         ),
         TwoOppositeDots(
-          animationDirection: AnimationDirection.inwards,
+          dotsEndResult: DotsEndResult.smaller,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
       ],
@@ -79,7 +81,7 @@ class FiveDiceFace extends DiceFace {
           dotsEndResult: DotsEndResult.smaller,
         ),
         TwoOppositeDots(
-          animationDirection: AnimationDirection.inwards,
+          dotsEndResult: DotsEndResult.smaller,
         ),
         DiceDot(),
       ],
@@ -95,10 +97,10 @@ class FiveDiceFace extends DiceFace {
           dotsEndResult: DotsEndResult.larger,
         ),
         TwoOppositeDots(
-          animationDirection: AnimationDirection.inwards,
+          dotsEndResult: DotsEndResult.smaller,
         ),
         TwoOppositeDots(
-          animationDirection: AnimationDirection.inwards,
+          dotsEndResult: DotsEndResult.smaller,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
       ],

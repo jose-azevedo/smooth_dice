@@ -15,7 +15,9 @@ class TwoDiceFace extends DiceFace {
 
   @override
   Widget fromOne(DiceProperties diceProperties) {
-    return const TwoOppositeDots();
+    return const TwoOppositeDots(
+      dotsEndResult: DotsEndResult.larger,
+    );
   }
 
   @override
@@ -53,6 +55,7 @@ class TwoDiceFace extends DiceFace {
   @override
   Widget fromThree(DiceProperties diceProperties) {
     return const TwoOppositeDots(
+      dotsEndResult: DotsEndResult.larger,
       children: [
         Positioned(
           top: 0,
@@ -80,7 +83,9 @@ class TwoDiceFace extends DiceFace {
     return const TwoAndFourDots(
       dotsEndResult: DotsEndResult.smaller,
       children: [
-        TwoOppositeDots(),
+        TwoOppositeDots(
+          dotsEndResult: DotsEndResult.larger,
+        ),
       ],
     );
   }

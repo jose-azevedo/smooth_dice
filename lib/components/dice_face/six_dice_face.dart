@@ -91,7 +91,9 @@ class SixDiceFace extends DiceFace {
     return const TwoAndSixDots(
       dotsEndResult: DotsEndResult.larger,
       children: [
-        TwoOppositeDots(),
+        TwoOppositeDots(
+          dotsEndResult: DotsEndResult.larger,
+        ),
       ],
     );
   }
@@ -121,8 +123,11 @@ class SixDiceFace extends DiceFace {
       dotsEndResult: DotsEndResult.larger,
       children: [
         TwoAndFourDots(dotsEndResult: DotsEndResult.smaller),
-        TwoOppositeDots(),
         TwoOppositeDots(
+          dotsEndResult: DotsEndResult.larger,
+        ),
+        TwoOppositeDots(
+          dotsEndResult: DotsEndResult.larger,
           dotsPosition: DotsPosition.topRightBottomLeft,
         ),
       ],
