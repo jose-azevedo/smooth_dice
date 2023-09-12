@@ -31,6 +31,7 @@ class TwoAndOneDots extends StatelessWidget {
         child: TweenAnimationBuilder(
           tween: tween,
           duration: diceProperties.duration,
+          curve: diceProperties.curve,
           builder: (_, position, __) => Stack(
             alignment: Alignment.center,
             children: [

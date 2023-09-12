@@ -28,6 +28,7 @@ class _OneToOneAnimationState extends State<OneToOneAnimation> {
             tween: Tween<double>(
                 begin: diceProperties.maxOffset.dx / 2, end: endPosition),
             duration: diceProperties.duration,
+            curve: diceProperties.curve,
             onEnd: onEnd,
             builder: (_, position, __) => Stack(
               children: [

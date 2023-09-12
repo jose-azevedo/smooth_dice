@@ -28,6 +28,7 @@ class TwoAndSixDots extends StatelessWidget {
     return TweenAnimationBuilder(
       tween: tween,
       duration: diceProperties.duration,
+      curve: diceProperties.curve,
       builder: (_, position, __) => TwoAndFourDots(
         transitionAxis: transitionAxis,
         dotsEndResult: dotsEndResult,

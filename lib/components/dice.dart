@@ -31,6 +31,7 @@ class _DiceState extends State<Dice> {
   late int _value;
   late int _lastValue;
   final duration = const Duration(milliseconds: 200);
+  final Curve curve = Curves.easeInOutCubicEmphasized;
 
   int get value => _value;
 
@@ -74,6 +75,7 @@ class _DiceState extends State<Dice> {
               key: ValueKey(_value),
               size: widget.size,
               duration: duration,
+              curve: curve,
               constraints: constraints,
               lastValue: _lastValue,
               child: Dice._diceFaces[_value]!,
@@ -90,6 +92,7 @@ class DiceProperties extends InheritedWidget {
   final int? lastValue;
   final double dotSize;
   final Duration duration;
+  final Curve curve;
   final BoxConstraints constraints;
   final Offset maxOffset;
 
@@ -99,6 +102,7 @@ class DiceProperties extends InheritedWidget {
     required super.child,
     required this.size,
     required this.duration,
+    required this.curve,
     required this.constraints,
   })  : dotSize = size * 10 / 75,
         maxOffset = Offset(constraints.maxHeight - size * 10 / 75,
