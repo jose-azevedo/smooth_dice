@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../components/buttons/roll_button.dart';
 import '../components/buttons/settings_button.dart';
 import '../components/dice_arena.dart';
 
@@ -20,6 +21,7 @@ class HomePage extends ConsumerWidget {
         ],
       ),
       body: const DiceArena(),
+      floatingActionButton: const RollButton(),
     );
   }
 }
