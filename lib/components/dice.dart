@@ -9,10 +9,12 @@ class Dice extends StatefulWidget {
     this.initialValue, {
     super.key,
     this.size = 75,
+    this.disabled = false,
   }) : assert(initialValue > 0 && initialValue <= 6);
 
   final int initialValue;
   final double size;
+  final bool disabled;
 
   static const _diceFaces = {
     1: OneDiceFace(),
@@ -54,7 +56,7 @@ class _DiceState extends State<Dice> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return GestureDetector(
-      onTap: roll,
+      onTap: widget.disabled ? null : roll,
       child: Container(
         height: widget.size,
         width: widget.size,
