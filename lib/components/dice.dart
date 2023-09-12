@@ -26,10 +26,10 @@ class Dice extends StatefulWidget {
   };
 
   @override
-  State<Dice> createState() => _DiceState();
+  State<Dice> createState() => DiceState();
 }
 
-class _DiceState extends State<Dice> {
+class DiceState extends State<Dice> {
   late int _value;
   late int _lastValue;
   final duration = const Duration(milliseconds: 300);
