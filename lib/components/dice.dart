@@ -61,14 +61,14 @@ class _DiceState extends State<Dice> {
         height: widget.size,
         width: widget.size,
         alignment: Alignment.center,
-        padding: EdgeInsets.all(widget.size * 0.16),
-        margin: EdgeInsets.all(widget.size * 0.066),
+        padding: EdgeInsets.all(widget.size * 12 / 75),
+        margin: EdgeInsets.all(widget.size * 5 / 75),
         decoration: BoxDecoration(
           color: theme.colorScheme.secondary,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(widget.size * 10 / 75),
           border: Border.all(
-            color: theme.colorScheme.secondary,
-            width: 5,
+            color: theme.colorScheme.primary,
+            width: widget.size * 5 / 75,
           ),
         ),
         child: LayoutBuilder(
