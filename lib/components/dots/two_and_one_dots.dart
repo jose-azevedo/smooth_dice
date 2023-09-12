@@ -35,14 +35,12 @@ class TwoAndOneDots extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               ...children,
-              AnimatedPositioned(
-                duration: diceProperties.duration,
+              Positioned(
                 top: position,
                 left: position,
                 child: const DiceDot(),
               ),
-              AnimatedPositioned(
-                duration: diceProperties.duration,
+              Positioned(
                 bottom: position,
                 right: position,
                 child: const DiceDot(),

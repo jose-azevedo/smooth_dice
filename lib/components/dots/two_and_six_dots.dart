@@ -33,14 +33,12 @@ class TwoAndSixDots extends StatelessWidget {
         dotsEndResult: dotsEndResult,
         children: [
           ...children,
-          AnimatedPositioned(
-            duration: diceProperties.duration,
+          Positioned(
             top: position,
             left: 0,
             child: const DiceDot(),
           ),
-          AnimatedPositioned(
-            duration: diceProperties.duration,
+          Positioned(
             bottom: position,
             right: 0,
             child: const DiceDot(),

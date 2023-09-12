@@ -43,14 +43,12 @@ class TwoAndFourDots extends StatelessWidget {
               right: 0,
               child: DiceDot(),
             ),
-            AnimatedPositioned(
-              duration: diceProperties.duration,
+            Positioned(
               top: transitionAxis == Axis.vertical ? position : 0,
               left: transitionAxis == Axis.horizontal ? position : 0,
               child: const DiceDot(),
             ),
-            AnimatedPositioned(
-              duration: diceProperties.duration,
+            Positioned(
               bottom: transitionAxis == Axis.vertical ? position : 0,
               right: transitionAxis == Axis.horizontal ? position : 0,
               child: const DiceDot(),

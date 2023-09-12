@@ -27,14 +27,12 @@ class TwoDiceFace extends DiceFace {
         duration: diceProperties.duration,
         builder: (_, position, __) => Stack(
           children: [
-            AnimatedPositioned(
-              duration: diceProperties.duration,
+            Positioned(
               top: position,
               left: position,
               child: const DiceDot(),
             ),
-            AnimatedPositioned(
-              duration: diceProperties.duration,
+            Positioned(
               bottom: position,
               right: position,
               child: const DiceDot(),
