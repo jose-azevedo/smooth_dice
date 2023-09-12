@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../components/buttons/settings_button.dart';
 import '../components/dice_arena.dart';
 
 class HomePage extends ConsumerWidget {
@@ -14,11 +15,8 @@ class HomePage extends ConsumerWidget {
           'Smooth Dice',
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings_outlined),
-          ),
+        actions: const [
+          SettingsButton(),
         ],
       ),
       body: const DiceArena(),
