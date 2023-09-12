@@ -22,29 +22,25 @@ class TwoDiceFace extends DiceFace {
     final tween = Tween<double>(begin: 0, end: diceProperties.maxOffset.dx);
 
     return SizedBox.expand(
-      child: Stack(
-        children: [
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => AnimatedPositioned(
+      child: TweenAnimationBuilder(
+        tween: tween,
+        duration: diceProperties.duration,
+        builder: (_, position, __) => Stack(
+          children: [
+            AnimatedPositioned(
               duration: diceProperties.duration,
               top: position,
               left: position,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => AnimatedPositioned(
+            AnimatedPositioned(
               duration: diceProperties.duration,
               bottom: position,
               right: position,
               child: const DiceDot(),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

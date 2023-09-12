@@ -28,31 +28,27 @@ class TwoAndOneDots extends StatelessWidget {
     return SizedBox.expand(
       child: Transform.flip(
         flipX: dotsPosition == DotsPosition.bottomLeftTopRight,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            ...children,
-            TweenAnimationBuilder(
-              tween: tween,
-              duration: diceProperties.duration,
-              builder: (_, position, __) => AnimatedPositioned(
+        child: TweenAnimationBuilder(
+          tween: tween,
+          duration: diceProperties.duration,
+          builder: (_, position, __) => Stack(
+            alignment: Alignment.center,
+            children: [
+              ...children,
+              AnimatedPositioned(
                 duration: diceProperties.duration,
                 top: position,
                 left: position,
                 child: const DiceDot(),
               ),
-            ),
-            TweenAnimationBuilder(
-              tween: tween,
-              duration: diceProperties.duration,
-              builder: (_, position, __) => AnimatedPositioned(
+              AnimatedPositioned(
                 duration: diceProperties.duration,
                 bottom: position,
                 right: position,
                 child: const DiceDot(),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -22,64 +22,44 @@ class OneAndSixDots extends StatelessWidget {
     }
 
     return SizedBox.expand(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => Positioned(
+      child: TweenAnimationBuilder(
+        tween: tween,
+        duration: diceProperties.duration,
+        builder: (_, position, __) => Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
               top: position,
               left: position,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => Positioned(
+            Positioned(
               top: position,
               right: position,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => Positioned(
+            Positioned(
               bottom: position,
               right: position,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => Positioned(
+            Positioned(
               bottom: position,
               left: position,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => Positioned(
+            Positioned(
               bottom: diceProperties.maxOffset.dy / 2,
               left: position,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => Positioned(
+            Positioned(
               bottom: diceProperties.maxOffset.dy / 2,
               right: position,
               child: const DiceDot(),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

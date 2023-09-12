@@ -26,41 +26,37 @@ class TwoAndFourDots extends StatelessWidget {
     }
 
     return SizedBox.expand(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          ...children,
-          const Positioned(
-            top: 0,
-            left: 0,
-            child: DiceDot(),
-          ),
-          const Positioned(
-            bottom: 0,
-            right: 0,
-            child: DiceDot(),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => AnimatedPositioned(
+      child: TweenAnimationBuilder(
+        tween: tween,
+        duration: diceProperties.duration,
+        builder: (_, position, __) => Stack(
+          alignment: Alignment.center,
+          children: [
+            ...children,
+            const Positioned(
+              top: 0,
+              left: 0,
+              child: DiceDot(),
+            ),
+            const Positioned(
+              bottom: 0,
+              right: 0,
+              child: DiceDot(),
+            ),
+            AnimatedPositioned(
               duration: diceProperties.duration,
               top: transitionAxis == Axis.vertical ? position : 0,
               left: transitionAxis == Axis.horizontal ? position : 0,
               child: const DiceDot(),
             ),
-          ),
-          TweenAnimationBuilder(
-            tween: tween,
-            duration: diceProperties.duration,
-            builder: (_, position, __) => AnimatedPositioned(
+            AnimatedPositioned(
               duration: diceProperties.duration,
               bottom: transitionAxis == Axis.vertical ? position : 0,
               right: transitionAxis == Axis.horizontal ? position : 0,
               child: const DiceDot(),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -25,32 +25,28 @@ class TwoAndSixDots extends StatelessWidget {
       tween = Tween(begin: diceProperties.maxOffset.dx / 2, end: 0);
     }
 
-    return TwoAndFourDots(
-      transitionAxis: transitionAxis,
-      dotsEndResult: dotsEndResult,
-      children: [
-        ...children,
-        TweenAnimationBuilder(
-          tween: tween,
-          duration: diceProperties.duration,
-          builder: (_, position, __) => AnimatedPositioned(
+    return TweenAnimationBuilder(
+      tween: tween,
+      duration: diceProperties.duration,
+      builder: (_, position, __) => TwoAndFourDots(
+        transitionAxis: transitionAxis,
+        dotsEndResult: dotsEndResult,
+        children: [
+          ...children,
+          AnimatedPositioned(
             duration: diceProperties.duration,
             top: position,
             left: 0,
             child: const DiceDot(),
           ),
-        ),
-        TweenAnimationBuilder(
-          tween: tween,
-          duration: diceProperties.duration,
-          builder: (_, position, __) => AnimatedPositioned(
+          AnimatedPositioned(
             duration: diceProperties.duration,
             bottom: position,
             right: 0,
             child: const DiceDot(),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
