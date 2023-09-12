@@ -30,7 +30,7 @@ class Dice extends StatefulWidget {
 class _DiceState extends State<Dice> {
   late int _value;
   late int _lastValue;
-  final duration = const Duration(milliseconds: 200);
+  final duration = const Duration(milliseconds: 300);
   final Curve curve = Curves.easeInOutCubicEmphasized;
 
   int get value => _value;
